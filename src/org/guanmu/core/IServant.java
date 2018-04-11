@@ -12,4 +12,54 @@ package org.guanmu.core;
  */
 public interface IServant {
 
+	/**
+	 * @return
+	 */
+	int getId();
+
+	/**
+	 * @return
+	 */
+	String getName();
+
+	/**
+	 * @return
+	 */
+	int getAtk();
+
+	/**
+	 * @return
+	 */
+	int getHp();
+
+	/**
+	 * @return
+	 */
+	int getMaxNp();
+
+	/**
+	 * @return
+	 */
+	JobClass getJobClass();
+
+	/**
+	 * @return
+	 */
+	int getPo();
+
+	/**
+	 * @return
+	 */
+	int getLevel();
+
+	/**
+	 * @return
+	 */
+	String getPoStr();
+
+	/**
+	 * 
+	 */
+	void printInfo();
+
 }

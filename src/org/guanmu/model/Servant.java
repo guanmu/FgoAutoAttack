@@ -1,6 +1,9 @@
 /* Copyright MacroSAN Technologies Co., Ltd. All rights reserved. */
 package org.guanmu.model;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import org.guanmu.core.IServant;
 import org.guanmu.core.JobClass;
 import org.guanmu.log.Loggers;
@@ -19,20 +22,22 @@ public class Servant implements IServant {
 	
 	private static Logger logger = Loggers.getLog(Servant.class.getName());
 	
-	private int id;
+	protected int id;
 	
-	private String name;
+	protected String name;
 	
-	private JobClass jobClass = JobClass.MAX;
+	protected JobClass jobClass = JobClass.MAX;
 	
-	private int atk;
-	private int hp;
+	protected int atk;
+	protected int hp;
 	
-	private int maxNp;
+	protected int maxNp;
 	
-	private int po;
+	protected int po;
 	
-	private int level;
+	protected int level;
+	
+	protected List<Card> cards = new ArrayList<>();
 	
 	/**
 	 * 
@@ -69,6 +74,7 @@ public class Servant implements IServant {
 	/**
 	 * @return the id
 	 */
+	@Override
 	public int getId() {
 		return id;
 	}
@@ -83,6 +89,7 @@ public class Servant implements IServant {
 	/**
 	 * @return the name
 	 */
+	@Override
 	public String getName() {
 		return name;
 	}
@@ -97,6 +104,7 @@ public class Servant implements IServant {
 	/**
 	 * @return the atk
 	 */
+	@Override
 	public int getAtk() {
 		return atk;
 	}
@@ -111,6 +119,7 @@ public class Servant implements IServant {
 	/**
 	 * @return the hp
 	 */
+	@Override
 	public int getHp() {
 		return hp;
 	}
@@ -125,6 +134,7 @@ public class Servant implements IServant {
 	/**
 	 * @return the maxNp
 	 */
+	@Override
 	public int getMaxNp() {
 		return maxNp;
 	}
@@ -139,6 +149,7 @@ public class Servant implements IServant {
 	/**
 	 * @return the jobClass
 	 */
+	@Override
 	public JobClass getJobClass() {
 		return jobClass;
 	}
@@ -155,6 +166,7 @@ public class Servant implements IServant {
 	/**
 	 * @return the po
 	 */
+	@Override
 	public int getPo() {
 		return po;
 	}
@@ -169,6 +181,7 @@ public class Servant implements IServant {
 	/**
 	 * @return the level
 	 */
+	@Override
 	public int getLevel() {
 		return level;
 	}
@@ -183,6 +196,7 @@ public class Servant implements IServant {
 	/**
 	 * 
 	 */
+	@Override
 	public void printInfo() {
 		System.out.println();
 		logger.info("   ”¢¡È–≈œ¢	");
@@ -197,7 +211,8 @@ public class Servant implements IServant {
 	/**
 	 * @return
 	 */
-	private String getPoStr() {
+	@Override
+	public String getPoStr() {
 		return getPo() + "∆∆";
 	}
 	
