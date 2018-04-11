@@ -3,6 +3,8 @@ package org.guanmu.model;
 
 import org.guanmu.core.IServant;
 import org.guanmu.core.JobClass;
+import org.guanmu.log.Loggers;
+import org.slf4j.Logger;
 
 /**
  * <p>
@@ -15,6 +17,8 @@ import org.guanmu.core.JobClass;
  */
 public class Servant implements IServant {
 	
+	private static Logger logger = Loggers.getLog(Servant.class.getName());
+	
 	private int id;
 	
 	private String name;
@@ -25,7 +29,11 @@ public class Servant implements IServant {
 	private int hp;
 	
 	private int maxNp;
-
+	
+	private int po;
+	
+	private int level;
+	
 	/**
 	 * 
 	 */
@@ -33,6 +41,31 @@ public class Servant implements IServant {
 	
 	}
 	
+	/**
+	 * @param id
+	 * @param name
+	 * @param jobClass
+	 * @param atk
+	 * @param hp
+	 * @param maxNp
+	 * @param po
+	 * @param level
+	 */
+	public Servant(int id, String name, JobClass jobClass, int atk, int hp, int maxNp, int po,
+			int level) {
+		super();
+		this.id = id;
+		this.name = name;
+		this.jobClass = jobClass;
+		this.atk = atk;
+		this.hp = hp;
+		this.maxNp = maxNp;
+		this.po = po;
+		this.level = level;
+	}
+
+
+
 	/**
 	 * @return the id
 	 */
@@ -117,12 +150,55 @@ public class Servant implements IServant {
 		this.jobClass = jobClass;
 	}
 
+	
+	
+	/**
+	 * @return the po
+	 */
+	public int getPo() {
+		return po;
+	}
+
+	/**
+	 * @param po the po to set
+	 */
+	public void setPo(int po) {
+		this.po = po;
+	}
+
+	/**
+	 * @return the level
+	 */
+	public int getLevel() {
+		return level;
+	}
+
+	/**
+	 * @param level the level to set
+	 */
+	public void setLevel(int level) {
+		this.level = level;
+	}
+
 	/**
 	 * 
 	 */
 	public void printInfo() {
-		// TODO Auto-generated method stub
-		
+		System.out.println();
+		logger.info("   英灵信息	");
+		logger.info("姓名：	" + getName());
+		logger.info("职阶：	" + getJobClass().name());
+		logger.info("等级 ：	" + getLevel());
+		logger.info("ATK：	" + getAtk());
+		logger.info("HP ：	" + getHp());
+		logger.info("几破 ：	" + getPoStr());
+	}
+
+	/**
+	 * @return
+	 */
+	private String getPoStr() {
+		return getPo() + "破";
 	}
 	
 	

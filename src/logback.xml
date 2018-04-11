@@ -2,7 +2,7 @@
 <configuration scan="true" scanPeriod="1 seconds">
 
 	
-	<define  name="OSGI_LOGS" class="com.guanmu.log.LogPathDefiner"></define>
+	<define  name="OSGI_LOGS" class="org.guanmu.log.LogPathDefiner"></define>
 
 	<appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
 		<layout class="ch.qos.logback.classic.PatternLayout">
