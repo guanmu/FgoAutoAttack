@@ -16,43 +16,41 @@ import org.guanmu.model.QuickCard;
  * @author wangquan 2018-4-11
  * 
  */
-public class MaXiu extends Servant {
+public class ELiWeng extends Servant {
 	
-	private static MaXiu instance = new MaXiu(); 
+	private static ELiWeng instance = new ELiWeng(); 
 	
 	static {
 		
-		instance.id = 1;
+		instance.id = 60;
 		
-		instance.name = "玛修·基列莱特";
+		instance.name = "俄里翁";
 		
-		instance.jobClass = JobClass.Shielder;
+		instance.jobClass = JobClass.Archer;
 		
-		instance.atk = 8730;
-		instance.hp = 12877;
-		instance.maxNp = 200;
+		instance.atk = 11107;
+		instance.hp = 14553;
+		instance.maxNp = 100;
 		instance.po = 4;
-		instance.starLevel = StarLevel.SR;
+		instance.starLevel = StarLevel.SSR;
 		instance.level = instance.starLevel.getLevel(instance.po);
 		
 		instance.initLoadCard(new QuickCard(0));
-		instance.initLoadCard(new ArtsrCard(1));
+		instance.initLoadCard(new QuickCard(1));
 		instance.initLoadCard(new ArtsrCard(2));
-		instance.initLoadCard(new BusterCard(3));
+		instance.initLoadCard(new ArtsrCard(3));
 		instance.initLoadCard(new BusterCard(4));		
 	}
 	
 	/**
 	 * 
 	 */
-	public MaXiu() {
+	private ELiWeng() {
 		
 	}
 	
-	public static MaXiu getInstance() {
+
+	public static ELiWeng getInstance() {
 		return instance;
 	}
-	
-
-	
 }

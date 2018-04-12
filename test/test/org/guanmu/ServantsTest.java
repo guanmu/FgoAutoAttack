@@ -7,7 +7,7 @@ import java.util.List;
 import junit.framework.TestCase;
 
 import org.guanmu.core.JobClass;
-import org.guanmu.model.Servant;
+import org.guanmu.model.servants.Servant;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;

@@ -2,6 +2,7 @@
 package org.guanmu.model;
 
 import org.guanmu.core.ICard;
+import org.guanmu.core.IServant;
 
 /**
  * <p>
@@ -15,13 +16,57 @@ import org.guanmu.core.ICard;
 public abstract class Card implements ICard {
 	
 	protected int cardId;
-
+	
+	protected IServant servant;
+	
 	/**
 	 * @param cardId
 	 */
 	public Card(int cardId) {
 		super();
 		this.cardId = cardId;
+	}
+
+	/**
+	 * @return the cardId
+	 */
+	public int getCardId() {
+		return cardId;
+	}
+
+	/**
+	 * @param cardId the cardId to set
+	 */
+	public void setCardId(int cardId) {
+		this.cardId = cardId;
+	}
+
+	/**
+	 * @return the servant
+	 */
+	public IServant getServant() {
+		return servant;
+	}
+
+	/**
+	 * @param servant the servant to set
+	 */
+	public void setServant(IServant servant) {
+		this.servant = servant;
+	}
+
+	/**
+	 * @return
+	 */
+	public double getCardRate() {
+		return 1.0;
+	}
+
+	/**
+	 * @return
+	 */
+	public double getBuff() {
+		return 0;
 	}
 	
 

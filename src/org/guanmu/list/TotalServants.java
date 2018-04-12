@@ -6,7 +6,11 @@ import java.util.concurrent.CopyOnWriteArrayList;
 
 import org.guanmu.core.IServant;
 import org.guanmu.core.JobClass;
-import org.guanmu.model.Servant;
+import org.guanmu.model.servants.ELiWeng;
+import org.guanmu.model.servants.MaXiu;
+import org.guanmu.model.servants.SanZang;
+import org.guanmu.model.servants.Servant;
+import org.guanmu.model.servants.WeiGongAssassion;
 
 /**
  * <p>
@@ -27,22 +31,26 @@ public class TotalServants {
 	 * 
 	 */
 	private TotalServants() {
-		
+		loadTotalServants();
 	}
 	
 	public static TotalServants getInstance() {
 		return instance;
 	}
 	
-	public void loadTotalServants() {
-		totalServants.add(new Servant(1, "玛修·基列莱特", JobClass.Shielder, 8730, 12877, 300, 4, 80));
-		totalServants.add(new Servant(60, "俄里翁", JobClass.Archer, 11107, 14553, 100, 4, 90));
-		totalServants.add(new Servant(109, "卫宫（Assassion）", JobClass.Assassin, 8958, 11168, 200, 4, 80));
-		totalServants.add(new Servant(113, "西行者", JobClass.Caster, 11658, 12965, 100, 4, 90));
+	private void loadTotalServants() {
+		totalServants.add(MaXiu.getInstance());
+		totalServants.add(ELiWeng.getInstance());
+		totalServants.add(WeiGongAssassion.getInstance());
+		totalServants.add(SanZang.getInstance());
 		totalServants.add(new Servant(118, "奥斯曼狄斯", JobClass.Rider, 11971, 12830, 100, 4, 90));
 		totalServants.add(new Servant(121, "兰斯洛特", JobClass.Saber, 9949, 11589, 200, 4, 80));
 		totalServants.add(new Servant(150, "梅林", JobClass.Caster, 10546, 14259, 300, 4, 90));
 		totalServants.add(new Servant(153, "新免武藏守藤原玄信", JobClass.Saber, 12037, 13635, 100, 4, 90));		
+	}
+	
+	public List<IServant> servants() {
+		return totalServants;
 	}
 	
 }

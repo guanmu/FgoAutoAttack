@@ -1,6 +1,10 @@
 /* Copyright MacroSAN Technologies Co., Ltd. All rights reserved. */
 package org.guanmu.core;
 
+import java.util.List;
+
+import org.guanmu.model.Card;
+
 /**
  * <p>
  * 类描述:英灵抽象接口
@@ -35,11 +39,6 @@ public interface IServant {
 	/**
 	 * @return
 	 */
-	int getMaxNp();
-
-	/**
-	 * @return
-	 */
 	JobClass getJobClass();
 
 	/**
@@ -53,13 +52,70 @@ public interface IServant {
 	int getLevel();
 
 	/**
-	 * @return
-	 */
-	String getPoStr();
-
-	/**
 	 * 
 	 */
 	void printInfo();
+
+	/**
+	 * @return
+	 */
+	boolean isActive();
+
+	/**
+	 * @return
+	 */
+	List<Card> getCards();
+
+	/**
+	 * @return
+	 */
+	double getAtkBuff();
+
+	/**
+	 * @return
+	 */
+	double getDefenseBuff();
+
+	/**
+	 * @return
+	 */
+	double getSpecialBuff();
+
+	/**
+	 * @return
+	 */
+	double getSpecialDefenseBuff();
+
+	/**
+	 * @return
+	 */
+	double getCriticalBuff();
+
+	/**
+	 * @return
+	 */
+	double getConstantDamage();
+
+	/**
+	 * @return
+	 */
+	double getConstantDeDamage();
+
+	/**
+	 * @param damage
+	 */
+	void beAtk(int damage);
+
+	/**
+	 * @return
+	 * @throws CloneNotSupportedException
+	 */
+	IServant newServant() throws CloneNotSupportedException;
+
+	/**
+	 * @param card
+	 */
+	void initLoadCard(Card card);
+
 
 }

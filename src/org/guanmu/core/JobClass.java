@@ -34,7 +34,8 @@ public enum JobClass {
 			default:
 				return NORMAL_ACT;
 			}
-		}		
+		}
+		
 	},
 	Lancer {
 		public double attackCoefficient(JobClass beJob) {
@@ -56,7 +57,15 @@ public enum JobClass {
 			default:
 				return NORMAL_ACT;
 			}
-		}		
+		}	
+		
+
+		/**
+		 * @return
+		 */
+		public double getJobCorrect() {
+			return 1.05;
+		}
 	},
 	Archer {
 		public double attackCoefficient(JobClass beJob) {
@@ -78,7 +87,20 @@ public enum JobClass {
 			default:
 				return NORMAL_ACT;
 			}
-		}		
+		}	
+		
+		@Override
+		public int getEnemyNpCollect() {
+			return 3;
+		}
+		
+
+		/**
+		 * @return
+		 */
+		public double getJobCorrect() {
+			return 0.95;
+		}
 	},
 	
 	Rider {
@@ -101,7 +123,8 @@ public enum JobClass {
 			default:
 				return NORMAL_ACT;
 			}
-		}		
+		}	
+		
 	},
 	Caster {
 		public double attackCoefficient(JobClass beJob) {
@@ -123,7 +146,15 @@ public enum JobClass {
 			default:
 				return NORMAL_ACT;
 			}
-		}		
+		}	
+		
+
+		/**
+		 * @return
+		 */
+		public double getJobCorrect() {
+			return 0.9;
+		}
 	},
 	Assassin {
 		public double attackCoefficient(JobClass beJob) {
@@ -145,7 +176,19 @@ public enum JobClass {
 			default:
 				return NORMAL_ACT;
 			}
-		}		
+		}	
+		
+		@Override
+		public int getEnemyNpCollect() {
+			return 3;
+		}	
+		
+		/**
+		 * @return
+		 */
+		public double getJobCorrect() {
+			return 0.9;
+		}
 	},
 	
 	Berserker {
@@ -163,6 +206,18 @@ public enum JobClass {
 			default:
 				return BREAK_ACT;
 			}
+		}
+		
+		@Override
+		public int getEnemyNpCollect() {
+			return 5;
+		}	
+		
+		/**
+		 * @return
+		 */
+		public double getJobCorrect() {
+			return 1.1;
 		}		
 	},
 	
@@ -183,7 +238,15 @@ public enum JobClass {
 			default:
 				return NORMAL_ACT;
 			}
-		}		
+		}
+		
+		
+		/**
+		 * @return
+		 */
+		public double getJobCorrect() {
+			return 1.1;
+		}
 	},
 	Ruler {
 		public double attackCoefficient(JobClass beJob) {
@@ -202,7 +265,15 @@ public enum JobClass {
 			default:
 				return NORMAL_ACT;
 			}
-		}		
+		}	
+		
+		
+		/**
+		 * @return
+		 */
+		public double getJobCorrect() {
+			return 1.1;
+		}
 	},
 	
 	Shielder {
@@ -241,5 +312,16 @@ public enum JobClass {
 	 */
 	public double attackCoefficient(JobClass beJob) {
 		return NORMAL_ACT;
+	}
+	
+	public int getEnemyNpCollect() {
+		return 4;
+	}
+
+	/**
+	 * @return
+	 */
+	public double getJobCorrect() {
+		return 1.0;
 	}
 }

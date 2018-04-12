@@ -13,20 +13,20 @@ import org.guanmu.core.IServant;
  * @author wangquan 2018-4-11
  * 
  */
-public class ArtsrCard extends Card {
+public class ExCard extends Card {
 
 	
 	/**
 	 * @param cardId
 	 */
-	public ArtsrCard(int cardId) {
+	public ExCard(int cardId) {
 		super(cardId);
 	}
 
 	/**
 	 * @param cardId
 	 */
-	public ArtsrCard(int cardId,IServant servant) {
+	public ExCard(int cardId,IServant servant) {
 		super(cardId);
 		this.servant = servant;
 	}

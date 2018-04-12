@@ -1,6 +1,8 @@
 /* Copyright MacroSAN Technologies Co., Ltd. All rights reserved. */
 package org.guanmu.model;
 
+import org.guanmu.core.IServant;
+
 
 /**
  * <p>
@@ -20,4 +22,20 @@ public class BusterCard  extends Card {
 		super(cardId);
 	}
 
+	/**
+	 * @param cardId
+	 */
+	public BusterCard(int cardId,IServant servant) {
+		super(cardId);
+		this.servant = servant;
+	}
+
+	/* (non-Javadoc)
+	 * @see org.guanmu.model.Card#getCardRate()
+	 */
+	@Override
+	public double getCardRate() {
+		return 1.5;
+	}	
+	
 }

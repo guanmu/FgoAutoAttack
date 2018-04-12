@@ -1,12 +1,14 @@
 /* Copyright MacroSAN Technologies Co., Ltd. All rights reserved. */
-package org.guanmu.model;
+package org.guanmu.model.servants;
 
 import java.util.ArrayList;
 import java.util.List;
 
 import org.guanmu.core.IServant;
 import org.guanmu.core.JobClass;
+import org.guanmu.core.StarLevel;
 import org.guanmu.log.Loggers;
+import org.guanmu.model.Card;
 import org.slf4j.Logger;
 
 /**
@@ -18,7 +20,7 @@ import org.slf4j.Logger;
  * @author wangquan 2018-4-11
  * 
  */
-public class Servant implements IServant {
+public class Servant implements IServant,Cloneable {
 	
 	private static Logger logger = Loggers.getLog(Servant.class.getName());
 	
@@ -38,6 +40,10 @@ public class Servant implements IServant {
 	protected int level;
 	
 	protected List<Card> cards = new ArrayList<>();
+	
+	protected StarLevel starLevel;
+	
+	protected int np;
 	
 	/**
 	 * 
@@ -134,7 +140,6 @@ public class Servant implements IServant {
 	/**
 	 * @return the maxNp
 	 */
-	@Override
 	public int getMaxNp() {
 		return maxNp;
 	}
@@ -194,6 +199,14 @@ public class Servant implements IServant {
 	}
 
 	/**
+	 * @return the cards
+	 */
+	@Override
+	public List<Card> getCards() {
+		return cards;
+	}
+
+	/**
 	 * 
 	 */
 	@Override
@@ -211,13 +224,111 @@ public class Servant implements IServant {
 	/**
 	 * @return
 	 */
-	@Override
 	public String getPoStr() {
 		return getPo() + "ÆÆ";
 	}
 	
+	/**
+	 * @param card
+	 */
+	@Override
+	public void initLoadCard(Card card) {
+		cards.add(card);
+		card.setServant(this);
+	}
 	
-	
-	
+	@Override
+	public IServant newServant() throws CloneNotSupportedException {
+		return (Servant)this.clone();
+	}
+
+	@Override
+	public boolean isActive() {
+		return hp > 0;
+	}
+
+	/* (non-Javadoc)
+	 * @see org.guanmu.core.IServant#getAtkBuff()
+	 */
+	@Override
+	public double getAtkBuff() {
+		return 0;
+	}
+
+	/* (non-Javadoc)
+	 * @see org.guanmu.core.IServant#getDefenseDebuff()
+	 */
+	@Override
+	public double getDefenseBuff() {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+	/* (non-Javadoc)
+	 * @see org.guanmu.core.IServant#getSpecialBuff()
+	 */
+	@Override
+	public double getSpecialBuff() {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+	/* (non-Javadoc)
+	 * @see org.guanmu.core.IServant#getSpecialDefenseBuff()
+	 */
+	@Override
+	public double getSpecialDefenseBuff() {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+	/* (non-Javadoc)
+	 * @see org.guanmu.core.IServant#getCriticalBuff()
+	 */
+	@Override
+	public double getCriticalBuff() {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+	/* (non-Javadoc)
+	 * @see org.guanmu.core.IServant#getConstantDamage()
+	 */
+	@Override
+	public double getConstantDamage() {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+	/* (non-Javadoc)
+	 * @see org.guanmu.core.IServant#getConstantDeDamage()
+	 */
+	@Override
+	public double getConstantDeDamage() {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+	/* (non-Javadoc)
+	 * @see org.guanmu.core.IServant#beAtk(int)
+	 */
+	@Override
+	public void beAtk(int damage) {
+		if (damage >= hp) {
+			hp = 0;
+			return;
+		}
+		
+		hp = hp - damage;
+	}
+
+	public void npAdd(int np) {
+		if (np + this.np > this.maxNp) {
+			this.np = this.maxNp;
+			return;
+		}
+		
+		this.np += np;
+	}	
 	
 }
