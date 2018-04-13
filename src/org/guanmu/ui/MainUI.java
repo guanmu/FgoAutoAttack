@@ -1,20 +1,16 @@
 /* Copyright MacroSAN Technologies Co., Ltd. All rights reserved. */
 package org.guanmu.ui;
 
-import java.util.ArrayList;
-import java.util.List;
-
 import org.guanmu.core.JobClass;
 import org.guanmu.list.TotalServants;
 import org.guanmu.model.ArtsrCard;
 import org.guanmu.model.BusterCard;
-import org.guanmu.model.Card;
 import org.guanmu.model.Fight;
 import org.guanmu.model.QuickCard;
 import org.guanmu.model.enemys.Enemy;
 import org.guanmu.model.servants.ELiWeng;
 import org.guanmu.model.servants.MaXiu;
-import org.guanmu.model.servants.SanZang;
+import org.guanmu.model.servants.WeiGongAssassion;
 
 /**
  * <p>
@@ -69,7 +65,7 @@ public class MainUI {
 		
 		fight.getPlayServants().add(MaXiu.getInstance().newServant());
 		fight.getPlayServants().add(ELiWeng.getInstance().newServant());
-		fight.getPlayServants().add(SanZang.getInstance().newServant());
+		fight.getPlayServants().add(WeiGongAssassion.getInstance().newServant());
 		
 		fight.start();
 		

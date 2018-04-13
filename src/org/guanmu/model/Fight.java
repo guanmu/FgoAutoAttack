@@ -8,7 +8,9 @@ import java.util.Set;
 
 import org.guanmu.config.Config;
 import org.guanmu.core.IServant;
+import org.guanmu.log.Loggers;
 import org.guanmu.model.enemys.Enemy;
+import org.slf4j.Logger;
 
 /**
  * <p>
@@ -20,6 +22,7 @@ import org.guanmu.model.enemys.Enemy;
  * 
  */
 public class Fight {
+	private static Logger logger = Loggers.getLog(Fight.class.getName());
 	
 	// system
 	private int fightId;
@@ -125,12 +128,14 @@ public class Fight {
 		
 		initStartValues();
 		
+		logger.debug("currentEnemys:" + currentEnemys);
+		logger.debug("currentServants:" + currentServants);
 		while(isPlayerActive() && isEnemyActive()) {
 			// player 			
 			playerRound();
 			
 			if (!isEnemyActive()) {
-				System.out.println("player win.");
+				logger.info("player win.");
 				break;
 			}
 			
@@ -145,7 +150,7 @@ public class Fight {
 			enemyRound();
 			
 			if (!isPlayerActive()) {
-				System.out.println("enemy win.");
+				logger.info("enemy win.");
 				break;
 			}
 			
@@ -232,9 +237,13 @@ public class Fight {
 		List<Card> playCards = playDealer.takeCards();
 		roundHistory.setRoundCards(playCards);
 		
+		logger.debug("playCards:" + playCards);
+		
 		List<IServant> targets = new ArrayList<>();
 		List<Card> selectCards = autoSelectCardsAndTarget(playCards,currentEnemys,targets);
 		roundHistory.setSelectCards(selectCards);
+		logger.debug("selectCards:" + selectCards + ",targets:" + targets);
+		
 		
 		roundHistory.autoAttacks(targets);
 		

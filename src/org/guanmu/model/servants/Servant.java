@@ -329,6 +329,15 @@ public class Servant implements IServant,Cloneable {
 		}
 		
 		this.np += np;
+	}
+
+	/* (non-Javadoc)
+	 * @see java.lang.Object#toString()
+	 */
+	@Override
+	public String toString() {
+		return name;
 	}	
+	
 	
 }

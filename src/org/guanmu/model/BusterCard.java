@@ -36,6 +36,15 @@ public class BusterCard  extends Card {
 	@Override
 	public double getCardRate() {
 		return 1.5;
+	}
+
+	/* (non-Javadoc)
+	 * @see java.lang.Object#toString()
+	 */
+	@Override
+	public String toString() {
+		return "BusterCard [cardId=" + cardId + ", servant=" + servant + "]";
 	}	
+	
 	
 }

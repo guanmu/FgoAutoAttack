@@ -35,5 +35,15 @@ public class QuickCard  extends Card {
 	public double getCardRate() {
 		return 0.8;
 	}
+
+
+	/* (non-Javadoc)
+	 * @see java.lang.Object#toString()
+	 */
+	@Override
+	public String toString() {
+		return "QuickCard [cardId=" + cardId + ", servant=" + servant + "]";
+	}
+	
 	
 }

@@ -159,6 +159,7 @@ public class RoundHistory {
 				
 				attacks.add(attack);
 				
+				int beforeHp = to.getHp();
 				to.beAtk(damage);
 				
 				// TODO
@@ -166,6 +167,9 @@ public class RoundHistory {
 					int np = 0;
 					((Servant)from).npAdd(np);				
 				}
+				
+				logger.debug(from.getName() + "(" + card + ")" + " ->" + to.getName());
+				logger.debug(beforeHp + "-" + damage + "=" + to.getHp());
 			}			
 		} catch (Exception e) {
 			logger.error("auto attack exception.",e);

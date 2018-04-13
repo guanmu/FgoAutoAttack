@@ -329,5 +329,16 @@ public class Enemy implements IServant,Cloneable {
 		cards.add(card);
 		card.setServant(this);
 	}
+
+
+
+	/* (non-Javadoc)
+	 * @see java.lang.Object#toString()
+	 */
+	@Override
+	public String toString() {
+		return "Enemy [name=" + name + "]";
+	}
+	
 	
 }

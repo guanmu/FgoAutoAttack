@@ -94,7 +94,7 @@ public class Attack {
 	
 	@Override
 	public String toString() {
-		String atkStr = "[" + from.getName() + "(" + card.getClass().getCanonicalName() + ")" + " ->" + to.getName() + "\n";
+		String atkStr = "[" + from.getName() + "(" + card + ")" + " ->" + to.getName() + "\n";
 		atkStr += "	¹¥»÷Õß×´Ì¬£ºatk=" + from.getAtk() + ",hp=" + from.getHp() + "\n";
 		atkStr += "	ÊÜ¹¥»÷Õß×´Ì¬£ºatk=" + to.getAtk() + ",hp=" + to.getHp() + "\n";
 		atkStr += "	ÉËº¦£º" + damage + "]";
